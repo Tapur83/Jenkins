@@ -1,0 +1,79 @@
+/* Overall Login Container */
+.login {
+  width: 400px; /* Adjust width as needed */
+  margin: 50px auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+/* Heading */
+.login h4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form Input Areas */
+.area {
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.login label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input Fields */
+.login input[type="email"],
+.login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensures content fits within padding */
+}
+
+/* Button */
+.login button.button {
+  background-color: #3f51b5; /* Adjust button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.login button.button:hover {
+  background-color: #283776; /* Adjust button hover color */
+}
+
+/* Message Display */
+.login p {
+  margin-top: 10px;
+}
+
+.login p.user {
+  text-align: center;
+  color: #ccc;
+}
+
+.login p.user a {
+  color: #3f51b5; /* Adjust link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.login p.user a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Message Styling (Success/Error) */
+.login p:nth-child(2) { /* Targets the first message paragraph */ 
+  color: red; /* Error message color */
+}
+
+.login p:nth-child(3) { /* Targets the second message paragraph (success) */ 
+  color: rgb(23, 24, 23); /* Success message color */
+}
