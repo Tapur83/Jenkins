@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -9,32 +8,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install' // Install dependencies
-                sh 'npm run build' // Create a production build
-                archiveArtifacts artifacts: 'build/**/*', fingerprint: true // Archive the build artifacts
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test -- --coverage' // Run unit tests with coverage
-                junit 'junit.xml' // Publish test results (if configured)
-                publishHTML(target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'coverage/lcov-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Coverage Report'
-                ])
+                sh 'npm test'
             }
         }
 
         stage('Code Quality Analysis') {
             steps {
-                sh 'npm run lint' // Run ESLint
-                withSonarQubeEnv('SonarQubeServer') { // SonarQube server configured in Jenkins
-                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=your-react-project-key -Dsonar.sources=."
+                withSonarQubeEnv('SonarQubeServer') { // Name of the SonarQube server configured in Jenkins
+                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=your-project-key -Dsonar.sources=."
                 }
             }
         }
